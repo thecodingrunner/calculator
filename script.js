@@ -25,63 +25,148 @@ let b;
 //   display.textContent = '+';
 // });
 
+// function numbers(number) {
+//   if (!op) {
+//     (!a) ? a = number : a = Number(a.toString() + (number).toString());
+//   } else {
+//     (!b) ? b = number : b = Number(b.toString() + (number).toString());
+//   }
+// }
+
+
 document.addEventListener("click", (event) => {
 //  if (a === undefined || op === undefined || b === undefined) {
   switch (event.target.id) {
     case 'add':
-      display.textContent += '+';
-      op = '+';
+      if (a !== undefined && op !== undefined && b !== undefined) {
+        display.textContent = '';
+        let answer = operate(a, op, b);
+        display.textContent = answer + '+';
+        a = answer;
+        b = undefined;
+        op = '+';
+      } else {
+        display.textContent += '+';
+        op = '+';
+      }
       break;
     case 'subtract':
-      display.textContent += '-';
-      op = '-';
+      if (a !== undefined && op !== undefined && b !== undefined) {
+        display.textContent = '';
+        let answer = operate(a, op, b);
+        display.textContent = answer + '-';
+        a = answer;
+        b = undefined;
+        op = '-';
+      } else {
+        display.textContent += '-';
+        op = '-';
+      }
       break;
     case 'multiply':
-      display.textContent += '*';
-      op = '*';
+      if (a !== undefined && op !== undefined && b !== undefined) {
+        display.textContent = '';
+        let answer = operate(a, op, b);
+        display.textContent = answer + '*';
+        a = answer;
+        b = undefined;
+        op = '*';
+      } else {
+        display.textContent += '*';
+        op = '*';
+      }
       break;
     case 'divide':
-      display.textContent += '/';
-      op = '/';
+      if (a !== undefined && op !== undefined && b !== undefined) {
+        display.textContent = '';
+        let answer = operate(a, op, b);
+        display.textContent = answer + '/';
+        a = answer;
+        b = undefined;
+        op = '/';
+      } else {
+        display.textContent += '/';
+        op = '/';
+      }
       break;
     case 'one':
-      (display.textContent == '') ? a = 1 : b = 1;
+      if (!op) {
+        (!a) ? a = 1 : a = Number(a.toString() + (1).toString());
+      } else {
+        (!b) ? b = 1 : b = Number(b.toString() + (1).toString());
+      }
       display.textContent += '1'
       break;
     case 'two':
-      (display.textContent == '') ? a = 2 : b = 2;
-      display.textContent += '2'
+      if (!op) {
+        (!a) ? a = 2 : a = Number(a.toString() + (2).toString());
+      } else {
+        (!b) ? b = 2 : b = Number(b.toString() + (2).toString());
+      }
+      display.textContent += '2';
       break;
     case 'three':
-      (display.textContent == '') ? a = 3 : b = 3;
+      if (!op) {
+        (!a) ? a = 3 : a = Number(a.toString() + (3).toString());
+      } else {
+        (!b) ? b = 3 : b = Number(b.toString() + (3).toString());
+      }
       display.textContent += '3'
       break;
     case 'four':
-      (display.textContent == '') ? a = 4 : b = 4;
+      if (!op) {
+        (!a) ? a = 4 : a = Number(a.toString() + (4).toString());
+      } else {
+        (!b) ? b = 4 : b = Number(b.toString() + (4).toString());
+      }
       display.textContent += '4'
       break;
     case 'five':
-      (display.textContent == '') ? a = 5 : b = 5;
+      if (!op) {
+        (!a) ? a = 5 : a = Number(a.toString() + (5).toString());
+      } else {
+        (!b) ? b = 5 : b = Number(b.toString() + (5).toString());
+      }
       display.textContent += '5'
       break;
     case 'six':
-      (display.textContent == '') ? a = 6 : b = 6;
+      if (!op) {
+        (!a) ? a = 6 : a = Number(a.toString() + (6).toString());
+      } else {
+        (!b) ? b = 6 : b = Number(b.toString() + (6).toString());
+      }
       display.textContent += '6'
       break;
     case 'seven':
-      (display.textContent == '') ? a = 7 : b = 7;
+      if (!op) {
+        (!a) ? a = 7 : a = Number(a.toString() + (7).toString());
+      } else {
+        (!b) ? b = 7 : b = Number(b.toString() + (7).toString());
+      }
       display.textContent += '7'
       break;
     case 'eight':
-      (display.textContent == '') ? a = 8 : b = 8;
+      if (!op) {
+        (!a) ? a = 8 : a = Number(a.toString() + (8).toString());
+      } else {
+        (!b) ? b = 8 : b = Number(b.toString() + (8).toString());
+      }
       display.textContent += '8'
       break;
     case 'nine':
-      (display.textContent == '') ? a = 9 : b = 9;
+      if (!op) {
+        (!a) ? a = 9 : a = Number(a.toString() + (9).toString());
+      } else {
+        (!b) ? b = 9 : b = Number(b.toString() + (9).toString());
+      }
       display.textContent += '9'
       break;
     case 'zero':
-      (display.textContent == '') ? a = 0 : b = 0;
+      if (!op) {
+        (!a) ? a = 0 : a = Number(a.toString() + (0).toString());
+      } else {
+        (!b) ? b = 0 : b = Number(b.toString() + (0).toString());
+      }
       display.textContent += '0'
       break;
     case 'equals':
@@ -89,17 +174,16 @@ document.addEventListener("click", (event) => {
       let answer = operate(a, op, b);
       display.textContent = answer;
       a = answer;
+      b = undefined;
+      op = undefined;
       break;
     case 'clear': 
       display.textContent = '';
+      a = undefined;
+      op = undefined;
+      b = undefined;
       break;
   }
-if (a !== undefined && op !== undefined && b !== undefined) {
-  display.textContent = '';
-  let answer = operate(a, op, b);
-  display.textContent = answer;
-  a = answer;
-}
 });
 
 
@@ -114,4 +198,3 @@ function operate(a, op, b) {
     return a / b
   };
 };
-
