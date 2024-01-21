@@ -1,21 +1,68 @@
+html {
+  height: 100%;
+  background-image: url("images/calculatorBackground.jpg");
+}
+
 .display {
   border: black solid 3px;
-  padding: 30px 100px;
+  width: 394px;
+  height: 120px;
   text-align: center;
+  line-height: 120px;
+  background-color: rgb(112, 112, 112);
+  color: black;
+  font-size: 75px;
+  font-family: 'Calculator', sans-serif;
+  font-weight: 900;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px darkslategray;
+  margin-bottom: 10px;
 }
 
 body {
   display: flex;
   justify-content: center;
+  align-content: center;
+  height: 100%;
 }
 
 button {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
+  background-color: rgb(112, 112, 112);
+  /* color: white; */
+  font-size: 40px;
+  box-shadow: 0 2px 4px darkslategray;
+  transition: all 0.03s linear;
+  margin: 5px;
+  border-radius: 5px;
+  font-family: 'Calculator', sans-serif;
+  font-style: bold;
+}
+
+button:hover {
+  background-color: rgb(187, 187, 187);
+}
+
+button:active {
+  box-shadow: 0 0 2px darkslategray;
+  transform: translateY(2px);
 }
 
 .buttons {
   display: flex;
-  width: 320px;
+  width: 400px;
   flex-wrap: wrap;
 }
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-color: darkgrey;
+  border-radius: 10px;
+  padding: 15px;
+  height: 540px;
+  margin-top: 40px;
+} 

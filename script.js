@@ -26,7 +26,7 @@ function operators(operator) {
 if (a !== undefined && op !== undefined && b !== undefined) {
   display.textContent = '';
   let answer = operate(a, op, b);
-  display.textContent = answer + operator;
+  display.textContent = +answer.toFixed(3) + operator;
   a = answer;
   b = undefined;
   op = operator;
@@ -84,7 +84,7 @@ document.addEventListener("click", (event) => {
     case 'equals':
       display.textContent = '';
       let answer = operate(a, op, b);
-      display.textContent = answer;
+      display.textContent = +answer.toFixed(3);
       a = answer;
       b = undefined;
       op = undefined;
