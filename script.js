@@ -1,173 +1,85 @@
-const add = document.querySelector('.add')
-const subtract = document.querySelector('.subtract')
-const multiply = document.querySelector('.multiply')
-const divide = document.querySelector('.divide')
-const one = document.querySelector('.one')
-const two = document.querySelector('.two')
-const three = document.querySelector('.three')
-const four = document.querySelector('.four')
-const five = document.querySelector('.five')
-const six = document.querySelector('.six')
-const seven = document.querySelector('.seven')
-const eight = document.querySelector('.eight')
-const nine = document.querySelector('.nine')
-const zero = document.querySelector('.zero')
-const button = document.querySelector('button')
-
+// Refer to display in html document.
 const display = document.querySelector('.display')
 
 display.textContent = '';
 
+// Define variables for operator, the first and second numbers.
 let op;
 let a;
 let b;
-// add.addEventListener("click", () => {
-//   display.textContent = '+';
-// });
 
-// function numbers(number) {
-//   if (!op) {
-//     (!a) ? a = number : a = Number(a.toString() + (number).toString());
-//   } else {
-//     (!b) ? b = number : b = Number(b.toString() + (number).toString());
-//   }
-// }
 
+// Function for each number. Based on whether each item already exists, add to the expression appropriately.
+function numbers(number) {
+  if (!op) {
+    (!a) ? a = number : a = Number(a.toString() + (number).toString());
+  } else {
+    (!b) ? b = number : b = Number(b.toString() + (number).toString());
+  }
+  display.textContent += number.toString()
+}
+
+
+// Function for each operator. If a, op, and b are already stored the answer will be calculated, otherwise 
+// continue expression
+function operators(operator) {
+if (a !== undefined && op !== undefined && b !== undefined) {
+  display.textContent = '';
+  let answer = operate(a, op, b);
+  display.textContent = answer + operator;
+  a = answer;
+  b = undefined;
+  op = operator;
+} else {
+  display.textContent += operator;
+  op = operator;
+}
+}
 
 document.addEventListener("click", (event) => {
 //  if (a === undefined || op === undefined || b === undefined) {
   switch (event.target.id) {
     case 'add':
-      if (a !== undefined && op !== undefined && b !== undefined) {
-        display.textContent = '';
-        let answer = operate(a, op, b);
-        display.textContent = answer + '+';
-        a = answer;
-        b = undefined;
-        op = '+';
-      } else {
-        display.textContent += '+';
-        op = '+';
-      }
+      operators('+');
       break;
     case 'subtract':
-      if (a !== undefined && op !== undefined && b !== undefined) {
-        display.textContent = '';
-        let answer = operate(a, op, b);
-        display.textContent = answer + '-';
-        a = answer;
-        b = undefined;
-        op = '-';
-      } else {
-        display.textContent += '-';
-        op = '-';
-      }
+      operators('-');
       break;
     case 'multiply':
-      if (a !== undefined && op !== undefined && b !== undefined) {
-        display.textContent = '';
-        let answer = operate(a, op, b);
-        display.textContent = answer + '*';
-        a = answer;
-        b = undefined;
-        op = '*';
-      } else {
-        display.textContent += '*';
-        op = '*';
-      }
+      operators('*')
       break;
     case 'divide':
-      if (a !== undefined && op !== undefined && b !== undefined) {
-        display.textContent = '';
-        let answer = operate(a, op, b);
-        display.textContent = answer + '/';
-        a = answer;
-        b = undefined;
-        op = '/';
-      } else {
-        display.textContent += '/';
-        op = '/';
-      }
+      operators('/')
       break;
     case 'one':
-      if (!op) {
-        (!a) ? a = 1 : a = Number(a.toString() + (1).toString());
-      } else {
-        (!b) ? b = 1 : b = Number(b.toString() + (1).toString());
-      }
-      display.textContent += '1'
+      numbers(1);
       break;
     case 'two':
-      if (!op) {
-        (!a) ? a = 2 : a = Number(a.toString() + (2).toString());
-      } else {
-        (!b) ? b = 2 : b = Number(b.toString() + (2).toString());
-      }
-      display.textContent += '2';
+      numbers(2);
       break;
     case 'three':
-      if (!op) {
-        (!a) ? a = 3 : a = Number(a.toString() + (3).toString());
-      } else {
-        (!b) ? b = 3 : b = Number(b.toString() + (3).toString());
-      }
-      display.textContent += '3'
+      numbers(3);
       break;
     case 'four':
-      if (!op) {
-        (!a) ? a = 4 : a = Number(a.toString() + (4).toString());
-      } else {
-        (!b) ? b = 4 : b = Number(b.toString() + (4).toString());
-      }
-      display.textContent += '4'
+      numbers(4);
       break;
     case 'five':
-      if (!op) {
-        (!a) ? a = 5 : a = Number(a.toString() + (5).toString());
-      } else {
-        (!b) ? b = 5 : b = Number(b.toString() + (5).toString());
-      }
-      display.textContent += '5'
+      numbers(5);
       break;
     case 'six':
-      if (!op) {
-        (!a) ? a = 6 : a = Number(a.toString() + (6).toString());
-      } else {
-        (!b) ? b = 6 : b = Number(b.toString() + (6).toString());
-      }
-      display.textContent += '6'
+      numbers(6);
       break;
     case 'seven':
-      if (!op) {
-        (!a) ? a = 7 : a = Number(a.toString() + (7).toString());
-      } else {
-        (!b) ? b = 7 : b = Number(b.toString() + (7).toString());
-      }
-      display.textContent += '7'
+      numbers(7);
       break;
     case 'eight':
-      if (!op) {
-        (!a) ? a = 8 : a = Number(a.toString() + (8).toString());
-      } else {
-        (!b) ? b = 8 : b = Number(b.toString() + (8).toString());
-      }
-      display.textContent += '8'
+      numbers(8);
       break;
     case 'nine':
-      if (!op) {
-        (!a) ? a = 9 : a = Number(a.toString() + (9).toString());
-      } else {
-        (!b) ? b = 9 : b = Number(b.toString() + (9).toString());
-      }
-      display.textContent += '9'
+      numbers(9);
       break;
     case 'zero':
-      if (!op) {
-        (!a) ? a = 0 : a = Number(a.toString() + (0).toString());
-      } else {
-        (!b) ? b = 0 : b = Number(b.toString() + (0).toString());
-      }
-      display.textContent += '0'
+      numbers(0);
       break;
     case 'equals':
       display.textContent = '';
@@ -186,7 +98,7 @@ document.addEventListener("click", (event) => {
   }
 });
 
-
+// Function that performs operations on the provided arguments. S
 function operate(a, op, b) {
   if (op === '+') {
     return a + b
